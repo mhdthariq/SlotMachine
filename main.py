@@ -21,6 +21,7 @@ symbol_value = {
     "D": 2
 }
 
+
 def check_winnings(columns, lines, bet, values):
     winnings = 0
     winning_lines = []
@@ -35,6 +36,7 @@ def check_winnings(columns, lines, bet, values):
             winning_lines.append(line + 1)
 
     return winnings, winning_lines
+
 
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
@@ -55,6 +57,7 @@ def get_slot_machine_spin(rows, cols, symbols):
 
     return columns
 
+
 def print_slot_machine(columns):
     for row in range(len(columns[0])):
         for i, column in enumerate(columns):
@@ -64,6 +67,7 @@ def print_slot_machine(columns):
                 print(column[row], end="")
 
         print()
+
 
 def deposit():
     while True:
@@ -77,6 +81,7 @@ def deposit():
         else:
             print("Please enter a valid number.")
 
+
 def get_number_of_lines():
     while True:
         lines = input(f"Enter the number of lines to bet (1-{MAX_LINE}): ")
@@ -89,6 +94,7 @@ def get_number_of_lines():
         else:
             print("Please enter a valid number.")
 
+
 def get_bet():
     while True:
         amount = input(f"Enter the amount to bet on each line (${MIN_BET}-${MAX_BET}): ")
@@ -100,6 +106,7 @@ def get_bet():
                 print(f"Amount must be between ${MIN_BET} and ${MAX_BET}.")
         else:
             print("Please enter a valid number.")
+
 
 def spin(balance):
     lines = get_number_of_lines()
@@ -123,6 +130,7 @@ def spin(balance):
         print("No winning lines.")
     return winnings - total_bet
 
+
 def main():
     balance = deposit()
     while True:
@@ -133,5 +141,6 @@ def main():
         balance += spin(balance)
 
     print(f"You left with ${balance}")
+
 
 main()
